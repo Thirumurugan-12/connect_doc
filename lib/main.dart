@@ -252,11 +252,11 @@ class FeaturesPage extends StatelessWidget {
       'icon': Icons.assignment_turned_in,
       'color': Colors.green,
     },
-    {
-      'title': 'Offline IVR Support',
-      'icon': Icons.phone_in_talk,
-      'color': Colors.orange,
-    },
+    // {
+    //   'title': 'Offline IVR Support',
+    //   'icon': Icons.phone_in_talk,
+    //   'color': Colors.orange,
+    // },
     {
       'title': 'Real-Time Doctor Guidelines Feed',
       'icon': Icons.update,
