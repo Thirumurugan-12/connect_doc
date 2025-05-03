@@ -1,8 +1,17 @@
-# Use a base image with Flutter pre-installed
-FROM cirrusci/flutter:stable
+# Use a Flutter image with the latest stable version
+FROM ghcr.io/cirruslabs/flutter:3.13.0
 
 # Set the working directory inside the container
 WORKDIR /app
+
+# Create a non-root user
+RUN useradd -ms /bin/bash flutteruser
+
+# Change ownership of the working directory
+RUN chown -R flutteruser:flutteruser /app
+
+# Switch to the non-root user
+USER flutteruser
 
 # Copy the Flutter project files into the container
 COPY . .
