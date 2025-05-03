@@ -7,6 +7,9 @@ WORKDIR /app
 # Create a non-root user
 RUN useradd -ms /bin/bash flutteruser
 
+# Change ownership of the Flutter SDK directory
+RUN chown -R flutteruser:flutteruser /sdks/flutter
+
 # Change ownership of the working directory
 RUN chown -R flutteruser:flutteruser /app
 
@@ -20,7 +23,7 @@ COPY . .
 EXPOSE 40000
 
 # Install dependencies
-RUN flutter pub get
+RUN git config --global --add safe.directory /sdks/flutter && flutter pub get
 
 # Command to run the Flutter development server
 CMD ["flutter", "run", "-d", "web-server", "--web-port=40000", "--web-hostname=0.0.0.0"]
