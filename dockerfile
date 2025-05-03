@@ -1,5 +1,5 @@
-# Use a Flutter image with the latest stable version
-FROM ghcr.io/cirruslabs/flutter:3.13.0
+# Use a Flutter image with a compatible Dart SDK version
+FROM ghcr.io/cirruslabs/flutter:3.29.3
 
 # Set the working directory inside the container
 WORKDIR /app
